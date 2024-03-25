@@ -130,26 +130,31 @@
             };
             abstract.addTo(map);
         var osmGeocoder = new L.Control.Geocoder({
-            collapsed: true,
-            position: 'topleft',
-            text: 'Search',
-            title: 'Testing'
-        }).addTo(map);
-        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
-        .className += ' fa fa-search';
-        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
-        .title += 'Search for a place';
-        var baseMaps = {};
-        L.control.layers(baseMaps,{"Densidade de Kernel": layer_DensidadedeKernel_1,"OpenStreetMap": layer_OpenStreetMap_0,},{collapsed:false}).addTo(map);
-        setBounds();
-        L.ImageOverlay.include({
-            getBounds: function () {
-                return this._bounds;
-            }
-        });
-            var img = document.createElement("img");
-        img.src = "legenda.png";
-        document.body.appendChild(img);
+    collapsed: true,
+    position: 'topleft',
+    text: 'Search',
+    title: 'Testing'
+}).addTo(map);
+document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+.className += ' fa fa-search';
+document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+.title += 'Search for a place';
+
+var baseMaps = {
+    "Densidade de Kernel": layer_DensidadedeKernel_1,
+    "Legenda": L.imageOverlay("Legenda.png", [[0, 0], [100, 100]]),
+    "OpenStreetMap": layer_OpenStreetMap_0
+};
+
+L.control.layers(baseMaps, {}, {collapsed:false}).addTo(map);
+setBounds();
+
+L.ImageOverlay.include({
+    getBounds: function () {
+        return this._bounds;
+    }
+});
+            
         </script>
     </body>
 </html>
