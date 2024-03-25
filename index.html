@@ -140,10 +140,12 @@ document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
 document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
 .title += 'Search for a place';
 
-var baseMaps = {};
+var baseMaps = {
+    "OpenStreetMap": layer_OpenStreetMap_0,
+};
 
 var overlayMaps = {
-    "<a href='https://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap</a>": layer_OpenStreetMap_0,
+    "OpenStreetMap": layer_OpenStreetMap_0,
     "Densidade de Kernel": layer_DensidadedeKernel_1
 };
 
