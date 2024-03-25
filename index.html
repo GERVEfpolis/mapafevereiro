@@ -129,7 +129,7 @@
                     this._div.innerHTML = '<br />Fonte: SINAN <br />Para um melhor desempenho, abra a página no Firefox <br />Atualizado em 22/03/2024 <br />';
             };
             abstract.addTo(map);
-        var osmGeocoder = new L.Control.Geocoder({
+       var osmGeocoder = new L.Control.Geocoder({
     collapsed: true,
     position: 'topleft',
     text: 'Search',
@@ -142,10 +142,10 @@ document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
 
 var baseMaps = {
     "Densidade de Kernel": layer_DensidadedeKernel_1,
-    "OpenStreetMap": layer_OpenStreetMap_0
+    "<a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a>": layer_OpenStreetMap_0
 };
 
-L.control.layers(baseMaps, {}, {collapsed:false}).addTo(map);
+L.control.layers(baseMaps, {"Densidade de Kernel": layer_DensidadedeKernel_1,"<a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a>": layer_OpenStreetMap_0}, {collapsed:false}).addTo(map);
 setBounds();
 
 // Adicionando a imagem abaixo de "Densidade de Kernel"
@@ -154,7 +154,6 @@ var legendImg = document.createElement('img');
 legendImg.src = 'Legenda.png'; // Substitua 'Legenda.png' pelo caminho da sua imagem
 legendImg.style.marginTop = '5px'; // Adiciona um espaçamento superior para separar a imagem do texto
 layerControl.appendChild(legendImg);
-            
         </script>
     </body>
 </html>
