@@ -129,7 +129,7 @@
                     this._div.innerHTML = '<br />Fonte: SINAN <br />Para um melhor desempenho, abra a página no Firefox <br />Atualizado em 22/03/2024 <br />';
             };
             abstract.addTo(map);
-    var osmGeocoder = new L.Control.Geocoder({
+   var osmGeocoder = new L.Control.Geocoder({
     collapsed: true,
     position: 'topleft',
     text: 'Search',
@@ -147,16 +147,17 @@ legendImg.src = 'Legenda.png'; // Substitua 'Legenda.png' pelo caminho da sua im
 legendImg.style.marginTop = '5px'; // Adiciona um espaçamento superior para separar a imagem do texto
 layerControl.appendChild(legendImg);
 
-var baseMaps = {
-    "OpenStreetMap": layer_OpenStreetMap_0,
-};
+var baseMaps = {};
 
-var overlayMaps = {
+L.control.layers(baseMaps,{
+    "<a href='https://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap</a>": layer_OpenStreetMap_0,
     "Densidade de Kernel": layer_DensidadedeKernel_1
-};
+},{collapsed:false}).addTo(map);
 
-L.control.layers(baseMaps, overlayMaps, {collapsed:false}).addTo(map);
 setBounds();
-        </script>
-    </body>
-</html>
+
+L.ImageOverlay.include({
+    getBounds: function () {
+        return this._bounds;
+    }
+});
