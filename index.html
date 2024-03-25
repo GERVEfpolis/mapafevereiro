@@ -148,13 +148,12 @@ var baseMaps = {
 L.control.layers(baseMaps, {}, {collapsed:false}).addTo(map);
 setBounds();
 
+// Adicionando a imagem abaixo de "Densidade de Kernel"
+var layerControl = document.querySelector('.leaflet-control-layers-overlays');
 var legendImg = document.createElement('img');
 legendImg.src = 'Legenda.png'; // Substitua 'Legenda.png' pelo caminho da sua imagem
 legendImg.style.marginTop = '5px'; // Adiciona um espaçamento superior para separar a imagem do texto
-var layerControlContainer = document.querySelector('.leaflet-control-layers');
-layerControlContainer.appendChild(legendImg);
-    }
-});
+layerControl.appendChild(legendImg);
             
         </script>
     </body>
