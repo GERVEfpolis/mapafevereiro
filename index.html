@@ -129,24 +129,35 @@
                     this._div.innerHTML = 'Fonte: SINAN <br />Para um melhor desempenho, abra a página no Firefox <br />Atualizado em 22/03/2024 <br />';
             };
             abstract.addTo(map);
-        var osmGeocoder = new L.Control.Geocoder({
-            collapsed: true,
-            position: 'topleft',
-            text: 'Search',
-            title: 'Testing'
-        }).addTo(map);
-        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
-        .className += ' fa fa-search';
-        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
-        .title += 'Search for a place';
-        var baseMaps = {};
-        L.control.layers(baseMaps,{"OpenStreetMap": layer_OpenStreetMap_1,"Densidade de Kernel": layer_DensidadedeKernel_0,},{collapsed:false}).addTo(map);
-        setBounds();
-        L.ImageOverlay.include({
-            getBounds: function () {
-                return this._bounds;
-            }
-        });
-        </script>
-    </body>
+       var osmGeocoder = new L.Control.Geocoder({
+    collapsed: true,
+    position: 'topleft',
+    text: 'Search',
+    title: 'Testing'
+}).addTo(map);
+document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+.className += ' fa fa-search';
+document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+.title += 'Search for a place';
+
+var baseMaps = {
+    
+};
+
+var overlayMaps = {
+    "<a href='https://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap</a>": layer_OpenStreetMap_0,
+    "Densidade de Kernel": layer_DensidadedeKernel_1
+};
+
+L.control.layers(baseMaps, overlayMaps, {collapsed:false}).addTo(map);
+setBounds();
+
+// Adicionando a imagem abaixo de "Densidade de Kernel"
+var layerControl = document.querySelector('.leaflet-control-layers-overlays');
+var legendImg = document.createElement('img');
+legendImg.src = 'Legenda.png'; // Substitua 'Legenda.png' pelo caminho da sua imagem
+legendImg.style.marginTop = '5px'; // Adiciona um espaçamento superior para separar a imagem do texto
+layerControl.appendChild(legendImg);
+</script>
+ </body>
 </html>
