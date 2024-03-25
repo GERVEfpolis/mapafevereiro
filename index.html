@@ -142,16 +142,17 @@ document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
 
 var baseMaps = {
     "Densidade de Kernel": layer_DensidadedeKernel_1,
-    "Legenda": L.imageOverlay("Legenda.png", [[0, 0], [100, 100]]),
     "OpenStreetMap": layer_OpenStreetMap_0
 };
 
 L.control.layers(baseMaps, {}, {collapsed:false}).addTo(map);
 setBounds();
 
-L.ImageOverlay.include({
-    getBounds: function () {
-        return this._bounds;
+var legendImg = document.createElement('img');
+legendImg.src = 'Legenda.png'; // Substitua 'Legenda.png' pelo caminho da sua imagem
+legendImg.style.marginTop = '5px'; // Adiciona um espaçamento superior para separar a imagem do texto
+var layerControlContainer = document.querySelector('.leaflet-control-layers');
+layerControlContainer.appendChild(legendImg);
     }
 });
             
