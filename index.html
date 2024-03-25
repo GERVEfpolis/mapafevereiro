@@ -141,11 +141,11 @@ document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
 .title += 'Search for a place';
 
 var baseMaps = {
-    "<a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a>": layer_OpenStreetMap_0,
+    "OpenStreetMap": layer_OpenStreetMap_0,
     "Densidade de Kernel": layer_DensidadedeKernel_1
 };
 
-L.control.layers(baseMaps, {"<a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a>": layer_OpenStreetMap_0, "Densidade de Kernel": layer_DensidadedeKernel_1}, {collapsed:false}).addTo(map);
+L.control.layers(baseMaps, null, {collapsed:false}).addTo(map);
 setBounds();
 
 // Adicionando a imagem abaixo de "Densidade de Kernel"
